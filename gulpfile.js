@@ -26,6 +26,7 @@ const srcPath = {
   css: "./src/sass/**/*.scss",
   js: "./src/js/**/*",
   img: "./src/images/**/*",
+  php: "./**/*.php",
 };
 
 // WordPress反映用
@@ -81,7 +82,6 @@ const cssSass = () => {
 };
 
 // 画像圧縮
-
 const imgImagemin = () => {
   return src(srcPath.img)
     .pipe(
@@ -109,21 +109,23 @@ const imgImagemin = () => {
 
 // js圧縮
 const jsBabel = () => {
-  return src(srcPath.js)
-    .pipe(
-      plumber({
-        errorHandler: notify.onError("Error: <%= error.message %>"),
-      })
-    )
-    .pipe(
-      babel({
-        presets: ["@babel/preset-env"],
-      })
-    )
-    // .min.jsにする場合
-    // .pipe(uglify())
-    // .pipe(rename({ extname: ".js" }))
-    .pipe(dest(destWpPath.js));
+  return (
+    src(srcPath.js)
+      .pipe(
+        plumber({
+          errorHandler: notify.onError("Error: <%= error.message %>"),
+        })
+      )
+      .pipe(
+        babel({
+          presets: ["@babel/preset-env"],
+        })
+      )
+      // .min.jsにする場合
+      // .pipe(uglify())
+      // .pipe(rename({ extname: ".js" }))
+      .pipe(dest(destWpPath.js))
+  );
 };
 
 // ブラウザーシンク
@@ -150,6 +152,7 @@ const watchFiles = () => {
   watch(srcPath.css, series(cssSass, browserSyncReload));
   watch(srcPath.js, series(jsBabel, browserSyncReload));
   watch(srcPath.img, series(imgImagemin, browserSyncReload));
+  watch(srcPath.php, series(browserSyncReload));
 };
 exports.default = series(
   series(cssSass, jsBabel, imgImagemin),
