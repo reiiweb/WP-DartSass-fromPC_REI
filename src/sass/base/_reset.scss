@@ -1,3 +1,8 @@
+@use "global" as *;
+
+/* リセットCSS
+---------------------------------------------------------------------------- */
+
 *,
 *::before,
 *::after {
@@ -26,16 +31,42 @@ dd {
   margin: 0;
 }
 
-/* Set core root defaults */
+// adobe fonts読み込み対策
+// html {
+//   visibility: hidden;
+// }
+// html.wf-active,
+// html.loading-delay {
+//   visibility: visible;
+// }
+
+/* スムーススクロール */
 html {
   scroll-behavior: smooth;
 }
+// :target {
+//   scroll-margin-top: 60px;
+// }
 
 /* Set core body defaults */
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  color: $black;
+  background-color: $white;
+  font-family: $base-font-family;
+  font-weight: $normal;
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $normal;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -51,9 +82,47 @@ a:not([class]) {
 
 /* Make images easier to work with */
 img {
-  max-width: 100%;
-  display: block;
   width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+video {
+  height: auto;
+  border: none;
+}
+
+strong {
+  color: inherit;
+}
+
+a,
+img,
+dl,
+dt,
+dd,
+article,
+aside,
+details,
+figcaption,
+figure,
+picture,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+textarea {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  table-layout: fixed;
 }
 
 /* Natural flow and rhythm in articles by default */
@@ -61,19 +130,10 @@ article > * + * {
   margin-top: 1em;
 }
 
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
 /* Blur images when they have no alt attribute */
 img:not([alt]) {
   filter: blur(10px);
 }
-
 
 /* フォームリセット */
 input,
@@ -91,7 +151,7 @@ textarea {
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
 input[type="checkbox"],
@@ -110,3 +170,6 @@ select {
 select::-ms-expand {
   display: none;
 }
+
+/* CSS
+---------------------------------------------------------------------------- */

@@ -1,0 +1,37 @@
+@use "global" as *;
+
+.p-mv {
+  min-height: 100vh;
+  position: relative;
+}
+
+.p-mv__img,
+.p-mv__img img {
+  min-height: initial;
+}
+
+.p-mv__content {
+  font-weight: $bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  z-index: 2;
+}
+
+.p-mv__title {
+  font-size: rem(50);
+  @include mq(md) {
+    font-size: rem(28);
+  }
+}
+.p-mv__text {
+  font-size: rem(25);
+  margin-top: rem(24);
+  @include mq(md) {
+    font-size: rem(20);
+  }
+}

@@ -1,3 +1,10 @@
+// adobe fonts読み込み対策
+// setTimeout(function () {
+//   if (document.getElementsByTagName("html")[0].classList.contains("wf-active") != true) {
+//     document.getElementsByTagName("html")[0].classList.add("loading-delay");
+//   }
+// }, 3000);
+
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 

@@ -1,4 +1,4 @@
-# CodeUps-WP-DartSass 
+# WP-DartSass 
 DartSass対応WordPress構築環境を含むgulpファイル
 
 ## 環境
@@ -18,14 +18,10 @@ DartSass対応WordPress構築環境を含むgulpファイル
 - コンパイルされたjs/css/images/は第一階層のassetsとWordPressThemeの中のassetsに吐き出されます
 
 ## 備考
-- スマホファーストが前提の仕様です。
+- PCファーストが前提の仕様です。
 - rem記述を前提としています。
 - ルートフォントをvwで設定していることからPCサイズのレイアウトをタブレットで表示させることが出来ます（remで書いた場合のみ）。
+- CSS設計手法のFLOCSSでコーディングしています。
 
-## 静的ファイルをアップするとき
-- htmlファイルとassetsフォルダをアップロードしてください
-
-## WordPress
-- WordPressThemeをアップロードすればテーマとして反映されます
-# CodeUps-WP-DartSass
-# WP-DartSass-fromPC_REI
+## アップロード
+- WordPressThemeをアップロードすればテーマとして反映されます。
