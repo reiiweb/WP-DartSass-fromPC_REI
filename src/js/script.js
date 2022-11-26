@@ -1,10 +1,28 @@
+jQuery(function ($) {
+  // この中であればWordpressでも「$」が使用可能になる
 
-jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
+  /* ハンバーガーメニュー */
+  $("#js-hamburger").click(function () {
+    $("body").toggleClass("is-open");
+    if ($(this).attr("aria-expanded") == "false") {
+      $(this).attr("aria-expanded", "true");
+      $("#js-sp-nav").attr("aria-hidden", "false");
+    } else {
+      $(this).attr("aria-expanded", "false");
+      $("#js-sp-nav").attr("aria-hidden", "true");
+    }
+  });
 
-  var topBtn = $('.pagetop');
-  topBtn.hide();
+  // ハンバーガーメニューアンカーリンク
+  $(".js-sp-nav-item a").click(function () {
+    $("body").removeClass("is-open");
+    $("#js-hamburger").attr("aria-expanded", "false");
+    $("#js-sp-nav").attr("aria-hidden", "true");
+  });
 
   // ボタンの表示設定
+  var topBtn = $(".js-pagetop");
+  topBtn.hide();
   $(window).scroll(function () {
     if ($(this).scrollTop() > 70) {
       // 指定px以上のスクロールでボタンを表示
@@ -14,37 +32,4 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       topBtn.fadeOut();
     }
   });
-
-  // ボタンをクリックしたらスクロールして上に戻る
-  topBtn.click(function () {
-    $('body,html').animate({
-      scrollTop: 0
-    }, 300, 'swing');
-    return false;
-  });
-
-  //ドロワーメニュー
-  $("#MenuButton").click(function () {
-    // $(".l-drawer-menu").toggleClass("is-show");
-    // $(".p-drawer-menu").toggleClass("is-show");
-    $(".js-drawer-open").toggleClass("open");
-    $(".drawer-menu").toggleClass("open");
-    $("html").toggleClass("is-fixed");
-
-  });
-
-
-
-  // スムーススクロール (絶対パスのリンク先が現在のページであった場合でも作動)
-
-  $(document).on('click', 'a[href*="#"]', function () {
-    let time = 400;
-    let header = $('header').innerHeight();
-    let target = $(this.hash);
-    if (!target.length) return;
-    let targetY = target.offset().top - header;
-    $('html,body').animate({ scrollTop: targetY }, time, 'swing');
-    return false;
-  });
-
 });

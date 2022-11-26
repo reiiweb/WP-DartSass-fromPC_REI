@@ -1,7 +1,9 @@
+"use strict";
+
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
-  // ハンバーガーメニュー
+  /* ハンバーガーメニュー */
   $("#js-hamburger").click(function () {
     $("body").toggleClass("is-open");
     if ($(this).attr("aria-expanded") == "false") {

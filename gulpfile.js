@@ -16,7 +16,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 const imageminSvgo = require("imagemin-svgo");
-// const browserSync = require("browser-sync");
+const browserSync = require("browser-sync");
 const imagemin = require("gulp-imagemin");
 const imageminMozjpeg = require("imagemin-mozjpeg");
 const imageminPngquant = require("imagemin-pngquant");
@@ -71,7 +71,6 @@ const cssSass = () => {
     .pipe(postcss([cssdeclsort({ order: "alphabetical" }), cssnext(browsers)]))
     .pipe(mmq()) // media query mapper
     .pipe(sourcemaps.write("./"))
-    // .pipe(dest(destPath.css))
     .pipe(dest(destWpPath.css))
     .pipe(
       notify({
@@ -82,6 +81,7 @@ const cssSass = () => {
 };
 
 // 画像圧縮
+
 const imgImagemin = () => {
   return src(srcPath.img)
     .pipe(
@@ -104,12 +104,54 @@ const imgImagemin = () => {
         }
       )
     )
-    // .pipe(dest(destPath.img))
     .pipe(dest(destWpPath.img));
 };
 
-const watchFiles = () => {
-  watch(srcPath.css, series(cssSass));
-  watch(srcPath.img, series(imgImagemin));
+// js圧縮
+const jsBabel = () => {
+  return src(srcPath.js)
+    .pipe(
+      plumber({
+        errorHandler: notify.onError("Error: <%= error.message %>"),
+      })
+    )
+    .pipe(
+      babel({
+        presets: ["@babel/preset-env"],
+      })
+    )
+    // .min.jsにする場合
+    // .pipe(uglify())
+    // .pipe(rename({ extname: ".js" }))
+    .pipe(dest(destWpPath.js));
 };
-exports.default = series(series(cssSass, imgImagemin), parallel(watchFiles));
+
+// ブラウザーシンク
+const browserSyncFunc = () => {
+  browserSync.init(browserSyncOption);
+};
+
+const browserSyncOption = {
+  // Localで動かすWPのサイトドメイン
+  proxy: "http://wpdartsassfrompcrei.local/",
+  open: "true",
+  watchOptions: {
+    debounceDelay: 1000,
+  },
+  reloadOnRestart: true,
+};
+
+const browserSyncReload = (done) => {
+  browserSync.reload();
+  done();
+};
+
+const watchFiles = () => {
+  watch(srcPath.css, series(cssSass, browserSyncReload));
+  watch(srcPath.js, series(jsBabel, browserSyncReload));
+  watch(srcPath.img, series(imgImagemin, browserSyncReload));
+};
+exports.default = series(
+  series(cssSass, jsBabel, imgImagemin),
+  parallel(watchFiles, browserSyncFunc)
+);
