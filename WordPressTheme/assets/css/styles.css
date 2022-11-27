@@ -617,6 +617,20 @@ body.is-open .p-sp-nav {
 	margin-top: 12.5rem;
 }
 
+/* contact-form-7プラグイン */
+
+/* 送信中のAjaxローダーを非表示 */
+
+div.wpcf7 .ajax-loader {
+	display: none !important;
+}
+
+/* 送信完了のメッセージボックスを非表示にする */
+
+.wpcf7-mail-sent-ok {
+	display: none !important;
+}
+
 /* 非表示設定 */
 
 .u-pc {
@@ -625,6 +639,68 @@ body.is-open .p-sp-nav {
 
 .u-sp {
 	display: none;
+}
+
+/* wp-pagenaviプラグイン */
+
+.wp-pagenavi {
+	clear: both;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1150px;
+	max-width: 71.875rem;
+	text-align: center;
+	width: 100%;
+}
+
+.wp-pagenavi a,
+.wp-pagenavi span {
+	color: #777777;
+	display: inline-block;
+	font-size: 21px;
+	font-size: 1.3125rem;
+	height: 50px;
+	height: 3.125rem;
+	line-height: 50px;
+	line-height: 3.125rem;
+	max-width: 60px;
+	max-width: 3.75rem;
+	position: relative;
+	text-align: center;
+	white-space: nowrap;
+	width: 100%;
+}
+
+.wp-pagenavi span.current {
+	color: red;
+}
+
+.wp-pagenavi .previouspostslink,
+.wp-pagenavi .nextpostslink {
+	color: #fff;
+	max-width: 150px;
+	max-width: 9.375rem;
+	position: relative;
+}
+
+.wp-pagenavi .previouspostslink {
+	margin-right: auto;
+	padding-left: 36px;
+	padding-left: 2.25rem;
+	text-align: left;
+}
+
+.wp-pagenavi .nextpostslink {
+	margin-left: auto;
+	padding-right: 36px;
+	padding-right: 2.25rem;
+	text-align: right;
 }
 
 @media (max-width: 1280px) {
@@ -825,6 +901,32 @@ a:hover {
 
 .u-sp {
 	display: block;
+}
+
+.wp-pagenavi {
+	max-width: 100%;
+}
+
+.wp-pagenavi a,
+.wp-pagenavi span {
+	font-size: 1rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	max-width: 2.75rem;
+}
+
+.wp-pagenavi .previouspostslink,
+.wp-pagenavi .nextpostslink {
+	font-size: 0.9375rem;
+	max-width: 8.75rem;
+}
+
+.wp-pagenavi .previouspostslink {
+	padding-left: 2.5625rem;
+}
+
+.wp-pagenavi .nextpostslink {
+	padding-right: 2.5625rem;
 }
 
 }

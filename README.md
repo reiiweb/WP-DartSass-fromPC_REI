@@ -7,6 +7,7 @@ DartSass対応WordPress構築環境を含むgulpファイル
 
 ## 使い方
 - ダウンロードしたフォルダを開く
+- gulpfile.jsの"Localで動かすWPのサイトドメイン"を変更
 - ターミナルを開き、 npm i とコマンドを入力
 - node_modulesとpackage-lock.jsonが生成されるのを確認する
 - 「 npx gulp 」とコマンドを入力すると動き出します

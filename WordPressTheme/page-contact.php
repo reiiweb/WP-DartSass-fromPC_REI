@@ -7,6 +7,9 @@
                 お問い合わせ・ご相談等がございましたら、お気軽に下記コメント欄よりお寄せください。
             </p>
 
+            <!-- Contact Form7のショートコードの読み込み -->
+            <?php echo do_shortcode('ショートコード名'); ?>
+
             <div class="p-contact__contents p-form">
 
                 <div class="p-form__content p-form__content--textarea">
@@ -94,6 +97,8 @@
                     <input class="c-btn" type="submit" value="確認する" />
                 </div>
             </div>
+
+
 
         </div>
     </section>
