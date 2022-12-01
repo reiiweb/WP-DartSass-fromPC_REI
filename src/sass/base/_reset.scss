@@ -57,7 +57,7 @@ body {
   background-color: $white;
   font-family: $base-font-family;
   font-weight: $normal;
-  font-size: 1rem;
+  font-size: rem(16);
 }
 
 h1,
@@ -94,6 +94,7 @@ video {
 }
 
 strong {
+  display: inline-block;
   color: inherit;
 }
 
@@ -113,8 +114,9 @@ header,
 hgroup,
 menu,
 nav,
-label,
 section,
+label,
+input,
 textarea {
   display: block;
 }
