@@ -7,7 +7,7 @@
     background-color: #000;
     // 横から出てくる場合
     transform: translateX(100%);
-    transition: 0.3s ease;
+    transition: 0.3s ease-in-out;
     overflow: hidden;
   }
 }
@@ -22,8 +22,6 @@
 }
 
 .p-sp-nav__item a {
-  display: block;
-  width: 100%;
   padding-top: rem(16);
   padding-bottom: rem(16);
   text-align: center;

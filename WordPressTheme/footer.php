@@ -2,7 +2,7 @@
     <div class="p-footer__inner">
         <div class="p-footer__logo">
             <a href="<?php echo esc_url(home_url('/')); ?>">
-                <img src="<?php echo get_theme_file_uri('images/common/logo.svg?ver=1.0.1'); ?>" alt="" />
+                <img src="<?php echo get_theme_file_uri('assets/images/common/logo.svg?ver=1.0.1'); ?>" alt="" />
             </a>
         </div>
         <ul class="p-footer__items">

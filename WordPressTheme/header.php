@@ -22,7 +22,7 @@
                           } else {
                             echo '';
                           } ?>">
-                          
+
     <div class="p-header__inner">
 
       <?php if (is_front_page()) {
@@ -31,7 +31,7 @@
         echo '<div class="p-header__logo">';
       } ?>
       <a href="<?php echo esc_url(home_url('/')); ?>">
-        <img src="<?php echo get_theme_file_uri('images/common/logo.svg?ver=1.0.1'); ?>" alt="" />
+        <img src="<?php echo get_theme_file_uri('assets/images/common/logo.svg?ver=1.0.1'); ?>" alt="" />
       </a>
       <?php if (is_front_page()) {
         echo '</h1>';
