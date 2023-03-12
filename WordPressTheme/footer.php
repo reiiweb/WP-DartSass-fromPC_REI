@@ -13,6 +13,8 @@
     <div class="p-footer__copy">&copy; 2022</div>
 </footer>
 
+</div>
+
 <!-- adobe fonts -->
 <!-- ../adobe fonts -->
 

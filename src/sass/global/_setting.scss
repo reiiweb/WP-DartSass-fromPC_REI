@@ -1,14 +1,22 @@
 @use "sass:math";
 
+// remへの計算式（16pxを基準としている。10pxを基準とする場合は16を10に変更する）
+@function rem($pixels) {
+  @return math.div($pixels, 16) * 1rem;
+}
+
 ////////////////////
 // インナー幅設定
 ////////////////////
 // コンテンツのインナー幅（最も共通の幅が多い部分）
 $inner: 1280px;
 
+// full
+$full: 1440;
+
 // 余白
 $padding-pc: 25px;
-$padding-sp: 20px;
+$padding-sp: rem(20);
 
 
 ////////////////////
@@ -59,11 +67,6 @@ $mediaquerys: (
   @media #{map-get($mediaquerys, $mediaquery)} {
     @content;
   }
-}
-
-// remへの計算式（16pxを基準としている。10pxを基準とする場合は16を10に変更する）
-@function rem($pixels) {
-  @return math.div($pixels, 16) * 1rem;
 }
 
 

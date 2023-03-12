@@ -87,8 +87,8 @@ video {
   border: none;
 }
 
-strong {
-  display: inline-block;
+strong,
+span {
   color: inherit;
 }
 
@@ -111,7 +111,8 @@ nav,
 section,
 label,
 input,
-textarea {
+textarea,
+button {
   display: block;
 }
 
@@ -123,9 +124,9 @@ table {
 }
 
 /* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
-}
+// article > * + * {
+//   margin-top: 1em;
+// }
 
 /* Blur images when they have no alt attribute */
 img:not([alt]) {
