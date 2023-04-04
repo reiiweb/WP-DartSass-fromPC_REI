@@ -13,8 +13,7 @@ DartSass対応WordPress構築環境を含むgulpファイル
 - 「 npx gulp 」とコマンドを入力すると動き出します
 
 ## 仕様
-- sassの記述はsrcフォルダの中で行う
-- jsの記述はsrcフォルダの中で行う
+- sass,jsの記述はsrcフォルダの中で行う
 - 画像はsrcフォルダのimagesの中に格納する（圧縮されます）
 - コンパイルされたjs/css/images/は第一階層のassetsとWordPressThemeの中のassetsに吐き出されます
 
