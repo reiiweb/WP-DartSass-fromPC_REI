@@ -9,6 +9,12 @@
 }
 
 
+// vwで表示
 @function vw($window_width, $size) {
 	@return math.div($size, $window_width) * 100vw;
+}
+
+// %で表示
+@function per($window_width, $size) {
+	@return math.div($size, $window_width) * 100%;
 }
